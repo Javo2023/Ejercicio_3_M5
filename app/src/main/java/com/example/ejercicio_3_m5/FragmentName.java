@@ -14,6 +14,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentName extends Fragment {
+    private FragmentNameBinding binding;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,6 +62,12 @@ public class FragmentName extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+    binding = FragmentNameBinding.inflate(getLayoutInflater(),container,false);
+
+    binding.btnComenzar.setOnClickListener(view -> {
+
+    })
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_name, container, false);
     }
