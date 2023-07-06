@@ -3,10 +3,14 @@ package com.example.ejercicio_3_m5;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.ejercicio_3_m5.databinding.FragmentNameBinding;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,9 +70,14 @@ public class FragmentName extends Fragment {
     binding = FragmentNameBinding.inflate(getLayoutInflater(),container,false);
 
     binding.btnComenzar.setOnClickListener(view -> {
+        String nombre = binding.editTextName.getText().toString();
+        Bundle bundle =new Bundle();
+        bundle.putString("nombre",nombre);
+        Navigation.findNavController(getView()).navigate(R.id.action_fragmentName_to_fragmentTrivia,bundle);
 
-    })
+
+    });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_name, container, false);
+        return binding.getRoot();
     }
 }
